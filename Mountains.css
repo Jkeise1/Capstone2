@@ -1,0 +1,40 @@
+
+body {
+    font-family: 'Arial', sans-serif;
+    margin: 0;
+    padding: 0;
+}
+
+.background {
+    background-color: #fff; /* White background */
+    color: #333; /* Dark text color */
+    padding: 20px;
+}
+
+header {
+    background-color: #ff7f50; /* Orange background for header */
+    color: #fff; /* White text color for header */
+    padding: 20px;
+    text-align: center;
+}
+
+h1 {
+    margin-bottom: 10px;
+}
+
+select {
+    padding: 10px;
+    font-size: 16px;
+}
+
+#results {
+    margin-top: 20px;
+}
+
+img {
+    max-width: 100%;
+    height: auto;
+    margin-top: 20px;
+    border: 2px solid #ff7f50; /* Orange border for images */
+    border-radius: 5px;
+}
