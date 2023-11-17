@@ -10,19 +10,7 @@
     <script src="./locationData.js"></script>
     <script src="./parkTypeData.js"></script>
     <script src="./nationalParkData.js"></script>
-    <style>
-        body{
-            vertical-align: top;
-        }
-        .card{
-            width: 29vw;
-            border: 1px solid black;
-            margin: 0.1em 0.1em 0 0;
-            display: inline-block;
-            vertical-align: top;
-            height: 20vh;
-        }
-    </style>
+    
 </head>
 
 <body>
@@ -30,18 +18,30 @@
         <ul>
             <li><a href="./OutdoorsSite.html">Home</a></li>
             <li><a href="./Mountains.html">Mountains</a></li>
-            <li><a href="#mountains">Search</a></li>
-
+            <li><a href="./AboutUs.html">About Us</a></li>
         </ul>
     </nav>
-    <h1>Parks</h1>
-    <select id="locationsList"><option value="">Select a Location:</option></select>
-    <select id="parkTypeList"><option value="">Select a Park Type:</option></select>
-    <div id="results">Results</div>
-</body>
 
-<script>
-    locationsArray.forEach(location => locationsList.innerHTML += `<option>${location}</option>`);
+    <h1>Parks</h1>
+    <select id="locationsList">
+        <option value="">Select a Location:</option>
+    </select>
+
+    <section class="showcase">
+        <!-- <video src="video (2160p).mp4" muted loop autoplay></video> -->
+    </section>
+
+    <select id="parkTypeList">
+        <option value="">Select a Park Type:</option>
+    </select>
+    <div class="video">
+        <video src="Treesvid.mp4" muted loop autoplay></video>
+    </div>
+
+    <div id="results">Results</div>
+
+    <script>
+        locationsArray.forEach(location => locationsList.innerHTML += `<option>${location}</option>`);
     parkTypesArray.forEach(pt => parkTypeList.innerHTML += `<option>${pt}</option>`);
 
     //GLOBALS
@@ -63,17 +63,41 @@
                 (selectedParkType == "" || p.LocationName.includes(selectedParkType));
     }
 
-    function getCard(p){
-        return `<div class="card">${p.LocationName}<div><b>${p.State}</b></div></div>`;
-    }
-
-    function showResults() {
-        results.innerHTML = "";
-        const filtered = nationalParksArray.filter(isMatch);
-        filtered.forEach(p => results.innerHTML += getCard(p));
-    }
-
-    showResults();
-</script>
+    function getCard(p) {
+            let phoneNumber = `Phone number: ${p.Phone}`;
+            let faxNumber = `Fax number: ${p.Fax}`;
+            let web = `For more info <a href="${p.Visit}" target="_blank">${p.Visit}</a>`;
+            if(p.Phone!=0){
+                phone=`<h4>${phoneNumber}  `
+            }
+            else{
+                phone='<h4>Phone number: No number listed  '
+            }
+            if(p.Fax!=0){
+                fax=`${faxNumber}</h4>`
+            }
+            else{
+                fax='Fax number: No number listed</h4>'
+            }
+            if(p.Visit!=undefined){
+                web=`<h4>${web}</h4>`
+            }
+            else{
+                web=`<h4>No Website listed</h4>`
+            }
+            let contactInfo = phone+fax+web
+            return `<div class="card park-card bg-warning-subtle"><h2 class="card-header">${p.LocationName}</h2>
+            <div class="card=text"><h3><b>${p.State}</b></h3></div><h4>${p.Address}, ${p.City}, ${p.ZipCode}</h4><h4></h4>
+            <h4>Location ID: <a href="https://www.google.com/maps/search/?api=1&query=${p.Latitude},${p.Longitude}" target="_blank">${p.LocationID}</a> </h4>
+            <h4>Coordinates: ${p.Longitude}, ${p.Latitude}</h4>${contactInfo}<div>`;
+        }
+        function showResults() {
+            results.innerHTML = ""
+            const filtered = nationalParksArray.filter(isMatch);
+            filtered.forEach(p => results.innerHTML += getCard(p));
+        }
+        showResults();
+    </script>
+</body>
 
 </html>

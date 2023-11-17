@@ -8,6 +8,7 @@ const nationalParksArray = [
     ZipCode: 42748,
     Phone: "(270) 358-3137",
     Fax: "(270) 358-3874",
+    Visit: "https://www.nps.gov/abli/index.htm",
     Latitude: 37.535671,
     Longitude: -85.7340637,
     Location: {
@@ -47,6 +48,7 @@ const nationalParksArray = [
     ZipCode: 2169,
     Phone: "(617) 770-1175",
     Fax: "(617) 472-7562",
+    Visit: "https://www.nps.gov/adam/index.htm",
     Latitude: 42.256412,
     Longitude: -71.011167,
     Location: {
@@ -66,6 +68,7 @@ const nationalParksArray = [
     ZipCode: 10007,
     Phone: "(212) 637-2019",
     Fax: "(212) 227-2026",
+    Visit: "https://www.nps.gov/afbg/index.htm",
     Latitude: 40.7150514,
     Longitude: -74.0053687,
     Location: {
