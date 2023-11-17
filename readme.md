@@ -6,3 +6,5 @@
 For this capstone I wanted to create a modern site with a old style twist. The homepage has a modern feel, while the mountain/national park pages have a comfortable warm feeling.
 
 Ont interesting piece of css is wrote is having a intuitive navbar for my home page, it transitions from the right side of the page to display my HREFS.
+
+Also want to give credit to Daemeon for providing me some code to get mines functioning! He's a major contributor into how my site was presented today!
